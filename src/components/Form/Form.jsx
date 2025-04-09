@@ -23,11 +23,11 @@ const Form = () => {
     }, [tg]);//[country, street, subject, tg]
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData);
-
+        tg.onEvent('mainButtonClicked', () => onSendData);
+/*
         return () => {
             tg.offEvent('mainButtonClicked', onSendData);
-        }
+        }*/
     }, [onSendData, tg]);
 
     useEffect(() => {
