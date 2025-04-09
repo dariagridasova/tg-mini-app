@@ -14,16 +14,15 @@ const Form = () => {
             street,
             subject
         };
-        let jsonData = JSON.stringify(data);
 
-        tg.sendData(jsonData);
+        tg.sendData(JSON.stringify(data));
     }, [country, street, subject, tg]);
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', () => onSendData());
+        tg.onEvent('mainButtonClicked', onSendData);
 
         return () => {
-            tg.offEvent('mainButtonClicked', onSendData());
+            tg.offEvent('mainButtonClicked', onSendData);
         }
     }, [onSendData, tg]);
 
