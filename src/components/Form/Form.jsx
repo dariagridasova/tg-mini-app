@@ -15,24 +15,25 @@ const Form = () => {
             "subject": subject
         };*/
         const data = {
-            superText: 'Ahahah'
+            superText: 'Ahahah',
+            country,
         }
         let jsonData = JSON.stringify(data);
 
         tg.sendData(jsonData);
-    }, [tg]);//[country, street, subject, tg]
+    }, [country, tg]);//[country, street, subject, tg]
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', () => onSendData);
-/*
+
         return () => {
             tg.offEvent('mainButtonClicked', onSendData);
-        }*/
+        }
     }, [onSendData, tg]);
 
     useEffect(() => {
         tg.MainButton.setParams({
-            text: 'Отправить данные 333'
+            text: 'Отправить данные 343'
         })
     }, [tg]);
 
