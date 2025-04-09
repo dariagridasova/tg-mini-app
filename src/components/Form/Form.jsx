@@ -10,12 +10,13 @@ const Form = () => {
 
     const onSendData = useCallback(() => {
         const data = {
-            country,
-            street,
-            subject
+            "country": country,
+            "street": street,
+            "subject": subject
         };
+        let jsonData = JSON.stringify(data);
 
-        tg.sendData(JSON.stringify(data));
+        tg.sendData(jsonData);
     }, [country, street, subject, tg]);
 
     useEffect(() => {
@@ -43,7 +44,7 @@ const Form = () => {
     const onChangeCountry = (e) => setCountry(e.target.value);
     const onChangeStreet = (e) => setStreet(e.target.value);
     const onChangeSubject = (e) => setSubject(e.target.value);
-    
+
     return (
         <div className={'form'}>
             <h3>Введите ваши данные</h3>
