@@ -19,10 +19,10 @@ const Form = () => {
     }, [country, street, subject, tg]);
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', onSendData());
+        tg.onEvent('mainButtonClicked', onSendData);
 
         return () => {
-            tg.offEvent('mainButtonClicked', onSendData());
+            tg.offEvent('mainButtonClicked', onSendData);
         }
     }, [onSendData, tg]);
 
@@ -40,18 +40,10 @@ const Form = () => {
         }
     }, [country, street, tg]);
 
-    const onChangeCountry = (e) => {
-        setCountry(e.target.value)
-    }
-
-    const onChangeStreet = (e) => {
-        setStreet(e.target.value)
-    }
-
-    const onChangeSubject = (e) => {
-        setSubject(e.target.value)
-    }
-
+    const onChangeCountry = (e) => setCountry(e.target.value);
+    const onChangeStreet = (e) => setStreet(e.target.value);
+    const onChangeSubject = (e) => setSubject(e.target.value);
+    
     return (
         <div className={'form'}>
             <h3>Введите ваши данные</h3>
