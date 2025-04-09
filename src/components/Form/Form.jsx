@@ -20,16 +20,16 @@ const Form = () => {
     }, [country, street, subject, tg]);
 
     useEffect(() => {
-        tg.onEvent('mainButtonClicked', () => onSendData);
+        tg.onEvent('mainButtonClicked', () => onSendData());
 
         return () => {
-            tg.offEvent('mainButtonClicked', onSendData);
+            tg.offEvent('mainButtonClicked', onSendData());
         }
     }, [onSendData, tg]);
 
     useEffect(() => {
         tg.MainButton.setParams({
-            text: 'Отправить данные 343'
+            text: 'Отправить данные 1143'
         })
     }, [tg]);
 
